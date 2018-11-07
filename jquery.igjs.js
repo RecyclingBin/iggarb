@@ -26,6 +26,7 @@
       return $this.posts
     }
     getPosts(settings.user, settings.posts, settings.perRow, t);
+    console.log(t);
     return t;
   }
 }(jQuery));
