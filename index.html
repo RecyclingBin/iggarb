@@ -31,7 +31,7 @@
   <script type="text/javascript">
     function greet( event ) {
         const username = $("#username").val();
-        $("#profile").html("<a href='http://instagram.com/" + username + "'>Profile Link</a>");
+        $("#profile").html("<a target=\"_blank\" href='http://instagram.com/" + username + "'>Profile Link</a>");
         const items = [];
         let message = "Looks like your 10 most recent posts had these captions: <br><br>";
         getPosts(username).then(posts => {
@@ -39,7 +39,8 @@
             let i = 0;
             $.each(posts, function(i, item) {
                 i++;
-                items.push('<li><a href="' + item.imageUrl + '">' + item.caption + '</a></li>');
+                console.log(item)
+                items.push('<li><a target="_blank" href="' + item.thumbnails["640"] + '">' + item.caption + '</a></li>');
                 let caption = item.caption;
                 if(item.caption.length > 50){
                     caption = item.caption.slice(0,50) + '...'

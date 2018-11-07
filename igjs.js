@@ -34,11 +34,6 @@ function formatPosts(rawPosts, username) {
         640: item.node.thumbnail_resources[4].src
       }
     })
-     var caption={
-      imageUrl: item.node.thumbnail_resources[4].src,
-      caption: item.node.edge_media_to_caption.edges[0].node.text
-     }
-     captions.push(caption)
   })
   return result;
 }
