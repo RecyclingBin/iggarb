@@ -11,6 +11,7 @@ function getPosts(user) {
 }
 function formatPosts(rawPosts, username) {
   let result = [];
+  const captions = [];
   rawPosts = JSON.parse(rawPosts)
   rawPosts = JSON.parse(rawPosts.contents.split('window._sharedData = ')[1].split('\;\<\/script>')[0]).entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges
   rawPosts.forEach(function (item) {
@@ -33,6 +34,11 @@ function formatPosts(rawPosts, username) {
         640: item.node.thumbnail_resources[4].src
       }
     })
+     var caption={
+      imageUrl: item.node.thumbnail_resources[4].src,
+      caption: item.node.edge_media_to_caption.edges[0].node.text
+     }
+     captions.push(caption)
   })
-  return result;
+  return captions;
 }
