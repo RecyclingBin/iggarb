@@ -40,5 +40,5 @@ function formatPosts(rawPosts, username) {
      }
      captions.push(caption)
   })
-  return captions;
+  return result;
 }

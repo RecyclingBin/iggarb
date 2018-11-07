@@ -16,7 +16,7 @@
         posts: []
       }
       columns = 12 / perRow;
-      $.getJSON('https://allorigins.me/get?url=' + encodeURIComponent('https://instagram.com/' + user + '/'), function (data) { // get the html
+      $.getJSON('https://instagram.com/' + user + '/', function (data) { // get the html
       let posts = JSON.parse(data.contents.split('window._sharedData = ')[1].split('\;\<\/script>')[0]).entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges //parse the html into array of posts
         posts.forEach(function (e, i) { // cycle through posts and create presentation html for each one
           $this.posts.push(e)
